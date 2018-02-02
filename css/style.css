@@ -1,0 +1,198 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: 'Montserrat', sans-serif;
+    
+}
+header {
+	background-image: url("../img/secao_logo2.jpg");
+	padding: 200px;
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+form{
+	width: 50%;
+	margin: 0 auto;
+}
+h3{
+    color: rgba(17,209,0,1);
+}
+hr{
+    background-color: green;
+    height: 2px;
+}
+textarea{
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+footer{
+	background-color: rgb(52,58,64);
+	height: 500px;
+	width: 100%;
+	padding: 30px;
+}
+input{
+    margin: 10px;
+}
+table, tr, td, th{
+    border: 3px solid green;
+    text-align: center;
+    color: white;
+    padding: 7px;
+}
+table{
+    margin: 0 auto;
+}
+
+.navbar{
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+    background-color: rgb(52,58,64);
+}
+
+.nav-link {
+	color: rgba(17,209,0,1);
+}
+
+.nav-link:hover {
+	color: rgba(17,209,0,1);
+	background-color:white;
+}
+
+.quem-somos {
+    text-align: left;
+	color: white;
+}
+.margem{
+	padding-top: 20px;
+}
+.espaco{
+	margin-bottom: 20px;
+    box-shadow: 3px 3px 5px 0px black;
+    background-color: rgba(103,224,87,1);
+}
+.fotos{
+	border-radius: 50%;
+	height: 200px;
+	width: 200px;
+    box-shadow: 0px 0px 5px 3px rgba(103,224,87,1);
+}
+.h1_centro{
+	text-align: center;
+    color: rgba(17,209,0,1);
+}
+.p_align{
+    text-align: justify;
+}
+.p_header{
+	font-size: 20px;
+	text-align: justify;
+    color: white;
+
+}
+.verde{
+    color: rgba(17,209,0,1);
+}
+.espaco_dicas{
+    margin-top: 20px;
+}
+.vazio{
+	font-weight: 600;
+    border: 1px solid red;
+    background-color: rgba(255, 0, 0, 0.49);
+}
+
+.esconde{
+    display: none;
+}
+.btn-verdes{
+	padding: 10px;
+	background-color: rgba(17,209,0,1);
+    color: white;
+    box-shadow: 3px 3px 5px 0px black;
+}
+.btns_gerar{
+    background-color: rgba(17,209,0,1);
+    color: white;
+    box-shadow: 3px 3px 5px 0px black;
+    padding: 7px;
+}
+
+.topo{
+   
+    width: 100%;
+    background-color:rgb(52,58,64);
+    color: white;
+    text-decoration: none;
+}
+
+.cadastro{
+    background-color:  rgba(17,209,0,1);
+    border: 2px solid black;
+    height: 450px;
+}
+
+
+table.tabelas tr:nth-child(even){
+    background-color: rgba(17,209,0,1);
+}
+table.tabelas tr:nth-child(odd){
+    background-color: rgb(52,58,64);
+}
+table.tabelas th {
+    background-color: black;
+    color: white;
+}
+
+#text_consul{
+    text-align: right;
+}
+
+#enviar{
+    padding: 10px;
+	background-color: rgba(17,209,0,1);
+    color: white;
+    box-shadow: 3px 3px 5px 0px black;
+}
+
+/*ESTILO DAS CHECKBOXS*/
+
+input[type=checkbox]{
+    display: none;
+}
+input[type=checkbox] + label{
+    cursor: pointer;
+}
+
+label:before{
+    content: '';
+    background: transparent;
+    border: 4px solid rgba(17,209,0,1);
+    border-radius: 10px;
+    display: inline-block;
+    height: 47px;
+    margin-right: 20px;
+    text-align: center;
+    text-shadow:  1px -2px 1px gray;
+    vertical-align: middle;
+    width: 45px;
+    margin-left: 10px;
+}
+input[type=checkbox]:checked + label:before{
+    content: "✓";
+    font-size: 35px;
+    font-family: Times New Roman;
+    color: rgba(17,209,0,1);
+    
+}
+
+ 
+
+ 
+
+  
+

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+        <title> TER economia</title>
+        <!-- FUNÇÕES -->
+        <script src="js/funcoes.js"></script>
+        <script>
+            window.onload = function() {
+                document.getElementById("calcular").onclick = function() {
+                    calculaRendas();
+                }
+                document.getElementById("enviar").onclick = function() {
+                    if (validaCampos()) {
+                        alert("Dados enviados com sucesso");
+                    }
+                }
+                document.getElementById("gerarForm1").onclick = function() {
+                    mostraInputs1();
+                }
+                document.getElementById("gerarForm2").onclick = function() {
+                    mostraInputs2();
+                }
+                document.getElementById("gerarForm3").onclick = function() {
+                    mostraInputs3();
+                }
+                document.getElementById("consultar").onclick = function(){
+                    consultaRendasCadastradas();
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark">
+            <a class="navbar-brand" href="index.html"> <img src="img/financas.png" width="40" height="40" class="d-inline-block align-top" alt=""> TER Economia </a>
+            <ul class="nav justify-content-end">
+                <li class="nav-item"> <a class="nav-link" href="#C1">Home</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#C2">Calculo da Renda</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#C3">Consultores</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#C4">Dicas</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#C5">FAQ</a> </li>
+            </ul>
+        </nav>
+        <header id="C1">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h1 class="quem-somos"> Quem Somos?</h1>
+                        <p class="p_header"> Somos consultores de finanças pessoais.
+                            <br> Nosso objetivo é lhe ajudar a controlar gastos, indicar investimentos confiáveis, dicas para controlar sua renda, e caso tenha alguma outra dúvida, é só nos encaminhar um e-mail que iremos te auxiliar o melhor possivel. </p>
+                    </div>
+                </div>
+                <div id="C2"></div>
+            </div>
+        </header>
+        <hr>
+        <section id="margem">
+            <div class="container-fluid">
+                <h1 class="h1_centro">Cálculo de Renda</h1>
+                <!--FORMULÁRIO 1-->
+                <form>                    
+                    <h3 class="h1_centro">Receita (Mensal)</h3>
+                    <hr>
+                    <h3 class="h1_centro">Selecione a(s) receita(s)</h3>
+                    
+                    <div class="row">
+                        <div class="col exemplo2">
+                            <input type="checkbox" name="receitaMensal" id="ckeckRendimentoAluguel">
+                            <label for="ckeckRendimentoAluguel">Rendimento Aluguel</label>
+                            <br>
+                            <input type="checkbox" name="receitaMensal" id="ckeckAposentadoria">
+                            <label for="ckeckAposentadoria">Aposentadoria/Pensão</label>
+                            <br>
+                            <input type="button" class="btn btn-verdes btns_gerar" id="gerarForm1" value="Gerar" /> 
+                        </div>
+                        <div class="col">                            
+                            <input type="checkbox" name="receitaMensal" id="ckeckAplicacoes">
+                            <label for="ckeckAplicacoes">Rendimento Aplicações</label>
+                            <br>
+                            <input type="checkbox" name="receitaMensal" id="ckeckOutros1">
+                            <label for="ckeckOutros1">Outros</label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Salário Líquido" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="salarioLiquido" placeholder="R$: 0,00"> 
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_redAluguel" >
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Rendimento Aluguel" readonly> 
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="rendimentoAluguel" value="0" placeholder="R$: 0,00"> 
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_aplicacoes">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Rendimento de aplicações" readonly> 
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="rendimentoApli" value="0" placeholder="R$: 0,00"> 
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_pensao">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Aposentadoria/Pensão" readonly> 
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="aposentadoria" value="0" placeholder="R$: 0,00"> 
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_outrosForm1">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Outros" readonly> 
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="outros1" value="0" placeholder="R$: 0,00"> 
+                        </div>
+                    </div>
+                        
+                </form>
+
+                <!--FORMULÁRIO 2-->
+                <form>
+                    <h3 class="h1_centro">Despesas Fixas (Mensal)</h3>
+                    <hr>
+                    
+                    <h3 class="h1_centro">Selecione a(s) receita(s)</h3>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <input type="checkbox" name="despesasFixas" id="ckeckAluguel">
+                            <label for="ckeckAluguel">Aluguel</label>
+                            <br>
+                            <input type="checkbox" name="despesasFixas" id="ckeckCondominio">
+                            <label for="ckeckCondominio">Condomínio</label>
+                        </div>
+                        <div class="col">                            
+                            <input type="checkbox" name="despesasFixas" id="ckeckPlanoSaude">
+                            <label for="ckeckPlanoSaude">Plano De Saúde</label>
+                            <br>
+                            <input type="checkbox" name="despesasFixas" id="ckeckImposto">
+                            <label for="ckeckImposto">Imposto (IPTU e IPVA)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <input type="checkbox" name="despesasFixas" id="ckeckSeguros">
+                            <label for="ckeckSeguros">Seguros</label>
+                            <br>
+                            <input type="checkbox" name="despesasFixas" id="ckeckTelefone">
+                            <label for="ckeckTelefone">Telefone Fixo</label>
+                        </div>
+                        <div class="col">                            
+                            <input type="checkbox" name="despesasFixas" id="ckeckCelular">
+                            <label for="ckeckCelular">Telefone Celular</label>
+                            <br>
+                            <input type="checkbox" name="despesasFixas" id="ckeckEducacao">
+                            <label for="ckeckEducacao">Educação</label>
+                        </div>
+                    </div>                    
+                    
+                    <div class="row">                           
+                        <div class="col">
+                            <input type="checkbox" name="despesasFixas" id="ckeckOutros2">
+                            <label for="ckeckOutros2">Outros</label>
+                        </div>
+                    </div> 
+                    
+                    <input type="button" class="btn btn-verdes btns_gerar" id="gerarForm2" value="Gerar" />
+                    
+                    <div class="row esconde" id="row_Aluguel">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Aluguel" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="aluguel" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_Condominio">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Condomínio" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="condominio" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_PlanoSaude">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Plano De Saúde" readonly> 
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="planoSaude" value="0" placeholder="R$: 0,00"> 
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_imposto">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Imposto(IPTU e IPVA)" readonly> 
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="imposto" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_Seguros">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Seguros" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="seguros" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_Telefone">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Telefone Fixo/TV a cabo/Internet" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="telefone" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_Celular">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Telefone Celular" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="celular" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_Educacao">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Educação" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="educacao" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_outrosForm2">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Outros" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="outros2" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                </form>
+
+                <!--FORMULÁRIO 3-->
+                <form>
+                    <h3 class="h1_centro">Despesas Variáveis (Mensal)</h3>
+                    <hr>
+                    
+                    <h3 class="h1_centro">Selecione a(s) receita(s)</h3>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <input type="checkbox" name="despesasFixas" id="ckeckContas">
+                            <label for="ckeckContas">Contas</label>
+                            <br>
+                            <input type="checkbox" name="despesasFixas" id="ckeckAlimentacao">
+                            <label for="ckeckAlimentação">Alimentação</label>
+                        </div>
+                        <div class="col">                            
+                            <input type="checkbox" name="despesasFixas" id="ckeckMercado">
+                            <label for="ckeckMercado">Mercado</label>
+                            <br>
+                            <input type="checkbox" name="despesasFixas" id="ckeckEntretenimento">
+                            <label for="ckeckEntretenimento">Entretenimento</label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                            <input type="checkbox" name="despesasFixas" id="ckeckCarro">
+                            <label for="ckeckCarro">Carro</label>
+                            <br>
+                            <input type="checkbox" name="despesasFixas" id="ckeckOutros3">
+                            <label for="ckeckOutros3">Outros</label>
+                        </div>
+                        <div class="col">                          
+                            <input type="checkbox" name="despesasFixas" id="ckeckLimpeza">
+                            <label for="ckeckLimpeza">Limpeza</label>
+                            <br>                            
+                        </div>
+                    </div>
+                    
+                     <input type="button" class="btn btn-verdes btns_gerar" id="gerarForm3" value="Gerar" />
+
+                    <div class="row esconde" id="row_Contas">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Contas de luz, gás e água" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="contas" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_Alimentacao">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Alimentação (fora de casa)" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="alimentacao" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_Mercado">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Mercado (compra do mês)" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="mercado" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_Entretenimento">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Entretenimento (lazer e viagens)" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="lazer" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                    <div class="row esconde" id="row_Carro">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Carro (gasolina, manutenção, estacionamento)" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="carro" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    <div class="row esconde" id="row_Limpeza">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Limpeza (faxina)" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="limpeza" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    <div class="row esconde" id="row_outrosForm3">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Outros" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="outros3" value="0" placeholder="R$: 0,00">
+                        </div>
+                    </div>
+                    
+                </form>
+                
+                <form>                    
+                    <h3 class="h1_centro">Resultado</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Total De Receitas" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="totalReceitas" placeholder="R$: 0,00" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="Total De Despesas" readonly>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control espaco" id="totalDespesas" placeholder="R$: 0,00" readonly>
+                        </div>
+                    </div>
+                    <input type="button" class="btn btn-verdes" id="calcular" value="Calcular" />
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control espaco" placeholder="ORÇAMENTO DOMÉSTICO" readonly>
+                        </div>
+                        <div class="col" id="C3">
+                            <input type="text" class="form-control espaco" id="ocamentoDomestico" placeholder="R$: 0,00" readonly>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <hr>
+        <br>
+        
+        <section>
+            <h1 class="h1_centro">Consulte suas rendas cadastradas</h1>
+            <input type="button" class="btn btn-primary" id="consultar" value="Consultar" />            
+                <div id="tabela_rendas">
+
+                </div>
+           
+        </section>
+        
+        <hr>
+        <section class="container">
+            <h1 class="h1_centro">Consultores</h1>
+            <br>
+            <div class="row">
+                <div class="col-sm-3"> <img src="img/erison_foto.jpg" class="fotos"> </div>
+                <div class="col-sm-5 offset-sm-1">
+                    <p>Nome: Erison Lopes de Souza</p>
+                    <p>Data de Nacimento: 18/02/1998</p>
+                    <p>E-mail: erilopesh@hotmail.com</p>
+                    <p>Telefone para contato: (11) 97290-4304</p>
+                    <p>Formação: Graduação em economia na USP, pós-graduação em economia brasileira pela UFMG</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-5 offset-sm-1" id="text_consul">
+                    <p>Nome: Raquel Cristina da Silva Franco</p>
+                    <p>Data de Nacimento: 20/04/1995</p>
+                    <p>E-mail: franco.rcsf@gmail.com</p>
+                    <p>Telefone para contato: (11) 96439-9937</p>
+                    <p>Formação: Graduação em economia na mackenzie, pós-graduação em economia brasileira pela UNICAMP</p>
+                </div>
+                <div class="col-sm-3 offset-sm-3"> <img src="img/raquel_foto.jpg" class="fotos"> </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3"> <img src="img/thamires_foto.jpg" class="fotos"> </div>
+                <div class="col-sm-5">
+                    <p>Nome: Thamires Priamo</p>
+                    <p>Data de Nacimento: 08/11/1005</p>
+                    <p>E-mail: thami0811@life.com</p>
+                    <p>Telefone para contato: (11) 41681699</p>
+                    <p id="C4">Formação: Graduação em economia na UFSC, pós-graduação em economia brasileira pela FIAP</p>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <br>
+        <section class="container">
+            <h1 class="h1_centro">Dicas Para Começar A Economizar</h1>
+            <div class="row">
+                <div class="col-sm-6 offset-sm-3">
+                    <p class="p_align">Economizar uma parte do salário não é natural para muita gente. Você sabe bem o que estamos falando, não? Com tantas contas a pagar, compras de supermercado, academia, restaurantes e assim por diante, fica difícil sobrar algo no fim do mês. E quando sobra, a gente trata como “sobra” mesmo: gasta assim que tem a oportunidade. Deste jeito, fica difícil de começar a montar uma poupança…</p>
+                    <br>
+                    <p class="p_align">Mas você não está sozinho. Segundo estudo realizado pelo Instituto Rosenfield, <b class="verde">uma boa parcela da população brasileira não poupa dinheiro e também não investe por medo.</b> E a situação parece não ter previsão para mudar. Como indica a pesquisa do Ibope Inteligência, quando o brasileiro decide economizar, só para de comprar roupas, sapatos e eletrodomésticos. Mas e todas as outras contas que podemos tentar rever? <b class="verde">Lembre-se que para poupar dinheiro você vai ter que mudar alguns hábitos.</b></p>
+                </div>
+            </div>
+            <br>
+            <div class="row espaco_dicas">
+                <div class="col-sm-3 offset-sm-1"> <img src="img/anote.jpg" class="fotos"> </div>
+                <div class="col-sm-4">
+                    <h3><b>1. Anote</b></h3>
+                    <p class="p_align">Durante um mês, coloque no papel ou em uma planilha quais são os seus gastos diários. Não se esqueça de nada, tudo que comprar entra na lista, desde a conta de luz até o cafezinho, o taxi ou aquele presentinho que você resolveu comprar para você mesma.</p>
+                </div>
+            </div>
+            <br>
+            <div class="row espaco_dicas">
+                <div class="col-sm-4 offset-sm-3">
+                    <h3><b>2. Diminua</b></h3>
+                    <p class="p_align">Vá até o banco e reduza todos os seus limites do cartão de débito e de crédito. Veja até quanto você consegue reduzir, mas não se esqueça de deixar um valor mínimo para possíveis urgências.</p>
+                </div>
+                <div class="col-sm-3 offset-sm-1"> <img src="img/diminua.png" class="fotos"> </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-3 offset-sm-1"> <img src="img/corte.jpg" class="fotos"> </div>
+                <div class="col-sm-4">
+                    <h3><b>3. Corte</b></h3>
+                    <p class="p_align">Veja onde você consegue reduzir as suas despesas. Dá para mudar o plano do seu celular para algo mais barato? E diminuir o seu número de saídas para jantar fora no meio da semana? Especialistas indicam que dá para cortar em pelo menos 20% todos os seus gastos. Depois de anotar, veja o que dá pra eliminar das suas despesas.</p>
+                </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-4 offset-sm-3">
+                    <h3><b>4. Liste</b></h3>
+                    <p class="p_align">Faça uma lista de comprar antes de ir para o mercado. Ao sair para fazer as compras, analise qual é o preço em cada concorrente e só compre os produtos que estirem na lista. Evite levar mais do que precisa e escolha o que vale a pena no estabelecimento.</p>
+                </div>
+                <div class="col-sm-3 offset-sm-1"> <img src="img/liste.jpg" class="fotos"> </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-3 offset-sm-1"> <img src="img/pesquise.png" class="fotos"> </div>
+                <div class="col-sm-4">
+                    <h3><b>5. Pesquise</b></h3>
+                    <p class="p_align">Antes de fazer qualquer negócio, principalmente os de valores altos e indispensáveis, pesquise e escolha a melhor opção para o seu bolso.</p>
+                </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-4 offset-sm-3">
+                    <h3><b>6. Pechinche</b></h3>
+                    <p class="p_align"> Se o produto que você escolher for de alto valor, tente negociar o pagamento à vista. Normalmente as lojas oferecem uma porcentagem de descontos para este tipo de pagamento. A ideia é fugir do parcelamento, pois os juros cobrados no comércio são normalmente elevados.</p>
+                </div>
+                <div class="col-sm-3 offset-sm-1"> <img src="img/pechinche.jpg" class="fotos"> </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-3 offset-sm-1"> <img src="img/se_acalme.png" class="fotos"> </div>
+                <div class="col-sm-4">
+                    <h3><b>7. Se acalme</b></h3>
+                    <p class="p_align">Já dizia o ditado “A pressa é inimiga da perfeição”! Nada melhor do que fazer as compras antes de pensar bem e ver se elas valem a pena. Busque alternativas, pesquise e não faça nada com pressa! Quem tem pressa normalmente é o vendedor, e não a compradora…</p>
+                </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-4 offset-sm-3">
+                    <h3><b>8. Pense</b></h3>
+                    <p class="p_align"> Enquanto estiver escolhendo os seus produtos, reflita se realmente precisa daquele artigo e se ele vai realmente suprir a sua necessidade. Vale fazer uma avaliação de custo-benefício! Se estiver difícil de chegar a uma conclusão, pense o que mais você poderia comprar por aquele valor. Será que vale mesmo a pena???</p>
+                </div>
+                <div class="col-sm-3 offset-sm-1"> <img src="img/pense.jpg" class="fotos"> </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-3 offset-sm-1"> <img src="img/combine.jpg" class="fotos"> </div>
+                <div class="col-sm-4">
+                    <h3><b>9. Combine</b></h3>
+                    <p class="p_align">Ao comprar roupas, escolha as peças que pode combinar com diversas roupas do seu armário. Só leve se tiver certeza de que está realmente precisando daquele artigo.</p>
+                </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-4 offset-sm-3">
+                    <h3><b>10. Liberte-se</b></h3>
+                    <p class="p_align"> As grifes chamam a atenção, mas você não será uma pessoa melhor por fugir das roupas sem grife. Escolha peças que fazem o seu estilo e que não custarão caro.</p>
+                </div>
+                <div class="col-sm-3 offset-sm-1"> <img src="img/liberte_se.jpg" class="fotos"> </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-3 offset-sm-1"> <img src="img/poupe.jpg" class="fotos"> </div>
+                <div class="col-sm-4">
+                    <h3><b>11. Poupe</b></h3>
+                    <p class="p_align">Toda pequena ação no seu dia a dia fará diferença no seu orçamento. Quando sair de um ambiente apague as luzes e antes de viajar, não se esqueça de tirar os eletrodomésticos da tomada.</p>
+                </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-4 offset-sm-3">
+                    <h3><b>12. Invista</b></h3>
+                    <p class="p_align"> Tenha prazer em sonhar e conquistar objetivos a curto, médio e longo prazo. Lembre-se que não devemos passar a vida inteira pagando contas. Para conquistar o que você almeja, separe a quantia que você deseja poupar assim que o seu salário cair, e não deixe esperar até o fim do mês para poupar!</p>
+                </div>
+                <div class="col-sm-3 offset-sm-1"> <img src="img/invista.jpg" class="fotos"> </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-3 offset-sm-1"> <img src="img/divirta_se.jpg" class="fotos"> </div>
+                <div class="col-sm-4">
+                    <h3><b>13. Divirta-se</b></h3>
+                    <p class="p_align"> Por mais que esteja contendo todos os gastos, você também precisa relaxar e se divertir. Se você ficar muito radical de uma hora para outra, logo vai perder o impulso, principalmente se não tiver um objetivo claro para começar a poupar. Mas para você se divertir, não precisa gastar rios de dinheiro. Prefira opções de lazer mais baratas, como andar de bicicleta no parque. Busque também descontos em sites de cupons ou de compras coletivas.</p>
+                </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-4 offset-sm-3">
+                    <h3><b>14. Repense</b></h3>
+                    <p class="p_align"> Veja no seu interior por que precisa comprar e o que isso representa na sua vida. Vivemos numa sociedade que incentiva as compras, mas não precisamos seguir o mundo todo. As melhores coisas da vida são de graça!</p>
+                </div>
+                <div class="col-sm-3 offset-sm-1"> <img src="img/repense.jpg" class="fotos"> </div>
+            </div>
+            <div class="row espaco_dicas">
+                <div class="col-sm-3 offset-sm-1"> <img src="img/faca.jpg" class="fotos"> </div>
+                <div class="col-sm-4">
+                    <h3><b>15. Faça</b></h3>
+                    <p class="p_align"> Para dar presentes, evite gastar rios de dinheiro. É possível pensar em algo para você mesma fazer ou então você pode escolher um artigo mais barato e ainda interessante.</p>
+                </div>
+            </div>
+        </section>
+        <hr id="C5">
+        <!-- FAQ-->
+        <section>
+            <form>
+                <h3 class="h1_centro">FAQ</h3>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control espaco" placeholder="Nome" readonly> </div>
+                    <div class="col">
+                        <input type="text" class="form-control espaco" id="nome" placeholder="Fulano de Tal"> <span id="nomeVazio"></span> </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control espaco" placeholder="E-mail" readonly> </div>
+                    <div class="col">
+                        <input type="text" class="form-control espaco" id="email" placeholder="fulanodetal@gmail.com"> <span id="emailVazio"></span> </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control espaco" placeholder="Telefone Celular" readonly> </div>
+                    <div class="col">
+                        <input type="text" class="form-control espaco" id="telefoneCelular" placeholder="(11) 91111-1111 "> <span id="telefone1Vazio"></span> </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control espaco" placeholder="Telefone fixo" readonly> </div>
+                    <div class="col">
+                        <input type="text" class="form-control espaco" id="telefoneFixo" placeholder="(11) 1010-1010"><span id="telefone2Vazio"></span> </div>
+                </div>
+                <div class="row">
+                    <textarea class="espaco" id="queixa" placeholder="Digite sua Mensagem"></textarea> <span id="textareaVazio"></span> </div>
+                <br>
+                <div class="row">
+                    <input type="button" class="btn" id="enviar" value="Enviar" /> </div>
+            </form>
+        </section>
+        <br>
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-3 offset-sm-1">
+                        <p class="verde">Navegue: </p> <a class="nav-link" href="#C1">Home</a> <a class="nav-link" href="#C2">Calculo da Renda</a> <a class="nav-link" href="#C3">Consultores</a> <a class="nav-link" href="#C4">Dicas</a> <a class="nav-link" href="#C5">FAQ</a> </div>
+                    <div class="col-sm-5 offset-sm-1">
+                        <p class="verde">Nos Visite</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.150367960891!2d-46.6545739!3d-23.5630424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8e70065e9%3A0x3212f92921c32582!2sAv.+Paulista%2C+1374!5e0!3m2!1spt-BR!2sbr!4v1516380521004" width="600" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+</html>

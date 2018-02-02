@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>		
+		<meta charset="utf-8">
+
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <!-- BOOTSTRAP -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	    <!-- CSS -->
+	    <link rel="stylesheet" type="text/css" href="css/style.css">
+	    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+	    <title>Cadastro</title>
+	    <!-- FUNÇÕES -->
+	    <script src="js/funcoes.js"></script>
+	</head>
+	<body>
+        <section class="topo">
+
+        </section>
+		<form class="cadastro">
+            <h2>Informe seus dados:</h2>
+            <br>
+            
+            Nome Completo: <input type="text" id="nome" ng-model="dados.nome"/>
+            <br>
+            Data de Nacimento: <input type="date" id="dataNacimento" ng-model="dados.nacimento"/>
+            <br>
+            E-mail: <input type="email" id="email" ng-model="dados.email"/>
+            <br>
+            Senha: <input type="password" id="senha" ng-model="dados.senha"/>
+            <br>
+            Telefone Residencial: <input type="number" id="telefoneResi" ng-model="dados.telefoneResi"/>
+            <br>
+            Telefone Celular: <input type="number" id="celular " ng-model="dados.celular"/>
+            <br>
+            <input type="button" id="cadastrar" value="Cadastrar" ng-click="irCadastro()"/>
+        </form>
+
+        <footer>
+
+        </footer>
+
+        <script src="js/cadastrarUsuario.js"></script>
+	</body>
+</html>
