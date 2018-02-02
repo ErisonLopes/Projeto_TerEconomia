@@ -13,11 +13,11 @@
 	    <!-- FUNÇÕES -->
 	    <script src="js/funcoes.js"></script>
 	</head>
-	<body>
+    <body ng-app="starter">
         <section class="topo">
 
         </section>
-		<form class="cadastro">
+		<form class="cadastro" ng-controller="cadastrocontroller">
             <h2>Informe seus dados:</h2>
             <br>
             
@@ -33,13 +33,14 @@
             <br>
             Telefone Celular: <input type="number" id="celular " ng-model="dados.celular"/>
             <br>
-            <input type="button" id="cadastrar" value="Cadastrar" ng-click="irCadastro()"/>
+            <input type="button" id="cadastrar" value="Cadastrar" ng-click="cadastrar()"/>
         </form>
 
         <footer>
 
         </footer>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
         <script src="js/cadastrarUsuario.js"></script>
 	</body>
 </html>
