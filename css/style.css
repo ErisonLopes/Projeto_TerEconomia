@@ -121,21 +121,36 @@ table{
     box-shadow: 3px 3px 5px 0px black;
     padding: 7px;
 }
-
-.topo{
-   
-    width: 100%;
-    background-color:rgb(52,58,64);
+.btn-formularios{
+    padding: 7px;
+    background-color: rgba(17,209,0,1);
     color: white;
-    text-decoration: none;
+    box-shadow: 3px 3px 5px 0px black;
+    border: 1px solid rgba(17,209,0,1);
 }
-
+.topoCadastro{
+    background-color:rgb(52,58,64);
+    height: 70px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+.logoCadastros{
+    height: 50px;
+}
 .cadastro{
-    background-color:  rgba(17,209,0,1);
     border: 2px solid black;
-    height: 450px;
+    margin-top: 50px;
+    color: rgba(17,209,0,1);
 }
-
+.formLogin{
+    width: 450px;
+    height: 200px;
+    border: 2px solid black;
+    margin-top: 80px;
+}
 
 table.tabelas tr:nth-child(even){
     background-color: rgba(17,209,0,1);

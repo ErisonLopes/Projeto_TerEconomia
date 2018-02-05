@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressMongoDb = require('express-mongo-db');
+const request = require('request');
 
 // Importando os controllers
 const usuariosController = require('./controllers/usuarios.js');
@@ -31,6 +32,7 @@ app.listen(3000, () => {
 // Rotas
 // app.get('/api/usuarios', usuariosController.listar); //nao existe!
 app.post('/api/usuarios', usuariosController.criar);
+
 app.put('/api/usuarios/:idDaUrl', usuariosController.atualizar);
 app.delete('/api/usuarios/:idDaUrl', usuariosController.deletar);
 

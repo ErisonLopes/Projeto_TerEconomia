@@ -13,32 +13,30 @@
 	    <!-- FUNÇÕES -->
 	    <script src="js/funcoes.js"></script>
 	</head>
-    <body ng-app="starter">
-        <section class="topo">
-
+    <body ng-app="starter" class="imgCadastro">
+        <section class="topoCadastro">
+            <img src="img/financas.png" class="logoCadastros"> TER Economia
         </section>
 		<form class="cadastro" ng-controller="cadastrocontroller">
             <h2>Informe seus dados:</h2>
             <br>
             
-            Nome Completo: <input type="text" id="nome" ng-model="dados.nome"/>
+            Nome Completo: <input type="text" id="nome" ng-model="dados.nome" class="positionInputs"/>
             <br>
-            Data de Nacimento: <input type="date" id="dataNacimento" ng-model="dados.nacimento"/>
+            Data de Nacimento: <input type="date" id="dataNacimento" ng-model="dados.nacimento" class="positionInputs"/>
             <br>
-            E-mail: <input type="email" id="email" ng-model="dados.email"/>
+            E-mail: <input type="email" id="email" ng-model="dados.email" class="positionInputs"/>
             <br>
-            Senha: <input type="password" id="senha" ng-model="dados.senha"/>
+            Senha: <input type="password" id="senha" ng-model="dados.senha" class="positionInputs"/>
             <br>
-            Telefone Residencial: <input type="number" id="telefoneResi" ng-model="dados.telefoneResi"/>
+            Telefone Residencial: <input type="number" id="telefoneResi" ng-model="dados.telefoneResi" class="positionInputs"/>
             <br>
-            Telefone Celular: <input type="number" id="celular " ng-model="dados.celular"/>
+            Telefone Celular: <input type="number" id="celular " ng-model="dados.celular" class="positionInputs"/>
             <br>
-            <input type="button" id="cadastrar" value="Cadastrar" ng-click="cadastrar()"/>
+            <input type="button" id="cadastrar" value="Cadastrar" ng-click="cadastrar()" class="btn-formularios"/>
         </form>
 
-        <footer>
-
-        </footer>
+        
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
         <script src="js/cadastrarUsuario.js"></script>

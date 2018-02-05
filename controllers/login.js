@@ -6,11 +6,10 @@ exports.logar = (req, res) => {
             res.send(err);
         }
         else{
-            if(result.length == 0){
-                res.sendStatus(404);
-                window.location = 'index.html';
+            if(result.length == 0){            
+                res.sendStatus(404);                
             }else{
-                res.send(result[0]);
+                res.send(result);
             }
         }
     });
