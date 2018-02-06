@@ -7,8 +7,11 @@ const expressMongoDb = require('express-mongo-db');
 const usuariosController = require('./controllers/usuarios.js');
 const loginController = require('./controllers/login.js');
 
+var cors = require('cors');
+
 // Instanciando o express
 const app = express();
+app.use(cors());
 
 // Aplicando o body parser
 app.use(bodyParser.json());
@@ -16,23 +19,20 @@ app.use(bodyParser.json());
 // Conecta a nossa api ao banco de dados
 app.use(expressMongoDb('mongodb://localhost:27017/cadastros'));
 
-//libera acesso à API de qualquer host/cliente. Para conectar com o Front-End geral.
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
 
 // Inicializando o servidor
 app.listen(3000, () => {
     console.log('Servidor ligado. Acesse em http://localhost:3000');
 });
 
-// Rotas 
+// Rotas
+// app.get('/api/usuarios', usuariosController.listar); //nao existe!
 app.post('/api/usuarios', usuariosController.criar);
 
-//app.put('/api/usuarios/:idDaUrl', usuariosController.atualizar);
-//app.delete('/api/usuarios/:idDaUrl', usuariosController.deletar);
+app.put('/api/usuarios/:idDaUrl', usuariosController.atualizar);
+app.delete('/api/usuarios/:idDaUrl', usuariosController.deletar);
 
-// app.get('/api/login', loginController.listar);
+
 app.post('/api/login', loginController.logar);
+
+app.post('/api/rendas', rendasController.criar);
