@@ -2,7 +2,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressMongoDb = require('express-mongo-db');
-const request = require('request');
 
 // Importando os controllers
 const usuariosController = require('./controllers/usuarios.js');
@@ -29,12 +28,11 @@ app.listen(3000, () => {
     console.log('Servidor ligado. Acesse em http://localhost:3000');
 });
 
-// Rotas
-// app.get('/api/usuarios', usuariosController.listar); //nao existe!
+// Rotas 
 app.post('/api/usuarios', usuariosController.criar);
 
-app.put('/api/usuarios/:idDaUrl', usuariosController.atualizar);
-app.delete('/api/usuarios/:idDaUrl', usuariosController.deletar);
+//app.put('/api/usuarios/:idDaUrl', usuariosController.atualizar);
+//app.delete('/api/usuarios/:idDaUrl', usuariosController.deletar);
 
-// app.get('/api/cadastro', cadastroController.listar);
+// app.get('/api/login', loginController.listar);
 app.post('/api/login', loginController.logar);

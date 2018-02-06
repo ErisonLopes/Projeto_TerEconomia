@@ -13,16 +13,16 @@
 	    <!-- FUNÇÕES -->
 	    <script src="js/funcoes.js"></script>
 	</head>
-	<body  ng-app="starter">
+	<body  ng-app="starter" class="imgFundo">
 			<section class="topoCadastro">
 					<img src="img/financas.png" class="logoCadastros"> TER Economia
 				</section>
 		
-		<form ng-controller="logincontroller" class="formLogin">
-			Email: <input type="email" id="email" ng-model="dados.nome"/><br>
-			Senha: <input type="password" id="senha" ng-model="dados.senha"/><br>
-			<input type="button" id="login" value="Entrar" ng-click="logar()"/>
-			<a href="cadastro.html">Não tem cadastro? Cadastre-se</a>
+		<form ng-controller="logincontroller" class="loginForm">
+			Email: <input type="email" id="email" class="estiloInputs" ng-model="dados.email"/><br>
+			Senha: <input type="password" id="senha" class="estiloInputs" ng-model="dados.senha"/><br>
+			<input type="button" id="login"class="btn-formularios" value="Entrar" ng-click="logar()"/>
+			<a href="cadastro.html" class="cadastre_se">Não tem cadastro? Cadastre-se</a>
 		</form>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
         <script src="js/logarUsuario.js"></script>

@@ -13,25 +13,31 @@
 	    <!-- FUNÇÕES -->
 	    <script src="js/funcoes.js"></script>
 	</head>
-    <body ng-app="starter" class="imgCadastro">
+    <body ng-app="starter" class="imgFundo">
         <section class="topoCadastro">
             <img src="img/financas.png" class="logoCadastros"> TER Economia
         </section>
-		<form class="cadastro" ng-controller="cadastrocontroller">
-            <h2>Informe seus dados:</h2>
+		<form class="cadastroForm" ng-controller="cadastrocontroller">
+            <h2 style="text-align:center">Informe seus dados</h2>
             <br>
             
-            Nome Completo: <input type="text" id="nome" ng-model="dados.nome" class="positionInputs"/>
+            Nome Completo:<br> 
+            <input type="text" id="nome" ng-model="dados.nome" class="estiloInputs"/>
             <br>
-            Data de Nacimento: <input type="date" id="dataNacimento" ng-model="dados.nacimento" class="positionInputs"/>
+            Data de Nacimento:<br>
+            <input type="date" id="dataNacimento" ng-model="dados.nacimento" class="estiloInputs"/>
             <br>
-            E-mail: <input type="email" id="email" ng-model="dados.email" class="positionInputs"/>
+            E-mail:<br> 
+            <input type="email" id="email" ng-model="dados.email" class="estiloInputs"/>
             <br>
-            Senha: <input type="password" id="senha" ng-model="dados.senha" class="positionInputs"/>
+            Senha:<br> 
+            <input type="password" id="senha" ng-model="dados.senha" class="estiloInputs"/>
             <br>
-            Telefone Residencial: <input type="number" id="telefoneResi" ng-model="dados.telefoneResi" class="positionInputs"/>
+            Telefone Residencial:<br> 
+            <input type="number" id="telefoneResi" ng-model="dados.telefoneResi" class="estiloInputs"/>
             <br>
-            Telefone Celular: <input type="number" id="celular " ng-model="dados.celular" class="positionInputs"/>
+            Telefone Celular:<br> 
+            <input type="number" id="celular " ng-model="dados.celular" class="estiloInputs"/>
             <br>
             <input type="button" id="cadastrar" value="Cadastrar" ng-click="cadastrar()" class="btn-formularios"/>
         </form>

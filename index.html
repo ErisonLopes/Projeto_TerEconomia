@@ -54,7 +54,8 @@
                     <div class="col-sm-8">
                         <h1 class="quem-somos"> Quem Somos?</h1>
                         <p class="p_header"> Somos consultores de finanças pessoais.
-                            <br> Nosso objetivo é lhe ajudar a controlar gastos, indicar investimentos confiáveis, dicas para controlar sua renda, e caso tenha alguma outra dúvida, é só nos encaminhar um e-mail que iremos te auxiliar o melhor possivel. </p>
+                            <br> Nosso objetivo é lhe ajudar a controlar gastos, indicar investimentos confiáveis, dicas para controlar sua renda, e caso tenha alguma outra dúvida, é só nos encaminhar um e-mail que iremos te auxiliar o melhor possivel. 
+                        </p>
                     </div>
                 </div>
                 <div id="C2"></div>
@@ -88,9 +89,31 @@
                             <label for="ckeckOutros1">Outros</label>
                         </div>
                     </div>
-                    
                     <div class="row">
                         <div class="col">
+                                <input type="text" class="form-control espaco" placeholder="Selecione o Mês" readonly>
+                        </div>
+                        
+                        <div class="col">
+                            <select>
+                                <option value="janeiro">Janeiro</option>
+                                <option value="fevereiro">Fevereiro</option>
+                                <option value="marco">Março</option>
+                                <option value="abril">Abril</option>
+                                <option value="maio">Maio</option>
+                                <option value="junho">Junho</option>
+                                <option value="julho">Julho</option>
+                                <option value="agosto">Agosto</option>
+                                <option value="setembro">Setembro</option>
+                                <option value="outubro">Outubro</option>
+                                <option value="novembro">Novembro</option>
+                                <option value="dezembro">Dezembro</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">                            
                             <input type="text" class="form-control espaco" placeholder="Salário Líquido" readonly>
                         </div>
                         <div class="col">
@@ -409,7 +432,9 @@
         
         <section>
             <h1 class="h1_centro">Consulte suas rendas cadastradas</h1>
-            <input type="button" class="btn btn-primary" id="consultar" value="Consultar" />            
+            <p>Clique no botão para consultar suas rendas cadastradas</p> 
+            <input type="button" class="btn btn-primary" id="consultar" value="Consultar" /> 
+                      
                 <div id="tabela_rendas">
 
                 </div>
