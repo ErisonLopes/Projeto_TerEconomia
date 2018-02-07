@@ -6,6 +6,7 @@ const expressMongoDb = require('express-mongo-db');
 // Importando os controllers
 const usuariosController = require('./controllers/usuarios.js');
 const loginController = require('./controllers/login.js');
+const rendasController = require('./controllers/rendas.js');
 
 var cors = require('cors');
 
@@ -26,7 +27,6 @@ app.listen(3000, () => {
 });
 
 // Rotas
-// app.get('/api/usuarios', usuariosController.listar); //nao existe!
 app.post('/api/usuarios', usuariosController.criar);
 
 app.put('/api/usuarios/:idDaUrl', usuariosController.atualizar);
@@ -35,4 +35,4 @@ app.delete('/api/usuarios/:idDaUrl', usuariosController.deletar);
 
 app.post('/api/login', loginController.logar);
 
-app.post('/api/rendas', rendasController.criar);
+app.post('/api/rendas', rendasController.cadastrar);

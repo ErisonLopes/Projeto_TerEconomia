@@ -11,11 +11,18 @@
         <title> TER economia</title>
         <!-- FUNÇÕES -->
         <script src="js/funcoes.js"></script>
+        <!--RENDAS-->
+        <script src="js/rendas.json"></script>
+        <!--Importanto o angular-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+        <script src="js/cadastrarRendas.js"></script>
         <script>
             window.onload = function() {
-                document.getElementById("calcular").onclick = function() {
-                    calculaRendas();
-                }
+                
+                //document.getElementById("calcular").onclick = function() {
+                  //  calculaRendas();
+                //}
+                
                 document.getElementById("enviar").onclick = function() {
                     if (validaCampos()) {
                         alert("Dados enviados com sucesso");
@@ -37,7 +44,7 @@
 
         </script>
     </head>
-    <body>
+    <body ng-app="starter">
         <nav class="navbar navbar-dark">
             <a class="navbar-brand" href="index.html"> <img src="img/financas.png" width="40" height="40" class="d-inline-block align-top" alt=""> TER Economia </a>
             <ul class="nav justify-content-end">
@@ -66,7 +73,7 @@
             <div class="container-fluid">
                 <h1 class="h1_centro">Cálculo de Renda</h1>
 
-                <form>                    
+                <form ng-controller="rendascontroller">                    
                     <h3 class="h1_centro">Receita (Mensal)</h3>
                     <hr>
                     <h3 class="h1_centro">Selecione a(s) receita(s)</h3>
@@ -95,7 +102,7 @@
                         </div>
                         
                         <div class="col">
-                            <select>
+                            <select ng-model="rendas.mes">
                                 <option value="janeiro">Janeiro</option>
                                 <option value="fevereiro">Fevereiro</option>
                                 <option value="marco">Março</option>
@@ -117,7 +124,7 @@
                             <input type="text" class="form-control espaco" placeholder="Salário Líquido" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="salarioLiquido" placeholder="R$: 0,00"> 
+                            <input type="text" class="form-control espaco" id="salarioLiquido" ng-model="rendas.salarioLiquido" placeholder="R$: 0,00"> 
                         </div>
                     </div>
                     
@@ -126,7 +133,7 @@
                             <input type="text" class="form-control espaco" placeholder="Rendimento Aluguel" readonly> 
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="rendimentoAluguel" value="0" placeholder="R$: 0,00"> 
+                            <input type="text" class="form-control espaco" id="rendimentoAluguel" ng-model="rendas.rendimentoAluguel" value="0" placeholder="R$: 0,00"> 
                         </div>
                     </div>
                     
@@ -135,7 +142,7 @@
                             <input type="text" class="form-control espaco" placeholder="Rendimento de aplicações" readonly> 
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="rendimentoApli" value="0" placeholder="R$: 0,00"> 
+                            <input type="text" class="form-control espaco" id="rendimentoApli" ng-model="rendas.rendimentoAplicacoes" value="0" placeholder="R$: 0,00"> 
                         </div>
                     </div>
                     
@@ -144,7 +151,7 @@
                             <input type="text" class="form-control espaco" placeholder="Aposentadoria/Pensão" readonly> 
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="aposentadoria" value="0" placeholder="R$: 0,00"> 
+                            <input type="text" class="form-control espaco" id="aposentadoria" ng-model="rendas.aposentadoria" value="0" placeholder="R$: 0,00"> 
                         </div>
                     </div>
                     
@@ -153,7 +160,7 @@
                             <input type="text" class="form-control espaco" placeholder="Outros" readonly> 
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="outros1" value="0" placeholder="R$: 0,00"> 
+                            <input type="text" class="form-control espaco" id="outros1" ng-model="rendas.outrosReceitas" value="0" placeholder="R$: 0,00"> 
                         </div>
                     </div>
                     <br>
@@ -210,7 +217,7 @@
                             <input type="text" class="form-control espaco" placeholder="Aluguel" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="aluguel" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="aluguel" ng-model="rendas.aluguel" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -219,7 +226,7 @@
                             <input type="text" class="form-control espaco" placeholder="Condomínio" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="condominio" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="condominio" ng-model="rendas.condominio" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -228,7 +235,7 @@
                             <input type="text" class="form-control espaco" placeholder="Plano De Saúde" readonly> 
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="planoSaude" value="0" placeholder="R$: 0,00"> 
+                            <input type="text" class="form-control espaco" id="planoSaude" ng-model="rendas.planoSaude" value="0" placeholder="R$: 0,00"> 
                         </div>
                     </div>
                     
@@ -237,7 +244,7 @@
                             <input type="text" class="form-control espaco" placeholder="Imposto(IPTU e IPVA)" readonly> 
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="imposto" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="imposto" ng-model="rendas.imposto" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -246,7 +253,7 @@
                             <input type="text" class="form-control espaco" placeholder="Seguros" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="seguros" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="seguros" ng-model="rendas.seguros" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -255,7 +262,7 @@
                             <input type="text" class="form-control espaco" placeholder="Telefone Fixo/TV a cabo/Internet" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="telefone" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="telefone" ng-model="rendas.telefone" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -264,7 +271,7 @@
                             <input type="text" class="form-control espaco" placeholder="Telefone Celular" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="celular" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="celular" ng-model="rendas.celular"value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -273,7 +280,7 @@
                             <input type="text" class="form-control espaco" placeholder="Educação" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="educacao" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="educacao" ng-model="rendas.educacao" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -282,7 +289,7 @@
                             <input type="text" class="form-control espaco" placeholder="Outros" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="outros2" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="outros2" ng-model="rendas.outrosDespesasFixas" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>         
                     <br>
@@ -297,7 +304,7 @@
                             <label for="ckeckContas">Contas</label>
                             <br>
                             <input type="checkbox" name="despesasFixas" id="ckeckAlimentacao">
-                            <label for="ckeckAlimentação">Alimentação</label>
+                            <label for="ckeckAlimentacao">Alimentação</label>
                         </div>
                         <div class="col">                            
                             <input type="checkbox" name="despesasFixas" id="ckeckMercado">
@@ -330,7 +337,7 @@
                             <input type="text" class="form-control espaco" placeholder="Contas de luz, gás e água" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="contas" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="contas" ng-model="rendas.contas" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -339,7 +346,7 @@
                             <input type="text" class="form-control espaco" placeholder="Alimentação (fora de casa)" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="alimentacao" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="alimentacao" ng-model="rendas.alimentacao" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -348,7 +355,7 @@
                             <input type="text" class="form-control espaco" placeholder="Mercado (compra do mês)" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="mercado" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="mercado" ng-model="rendas.mercado" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -357,7 +364,7 @@
                             <input type="text" class="form-control espaco" placeholder="Entretenimento (lazer e viagens)" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="lazer" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="lazer" ng-model="rendas.lazer" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
@@ -366,7 +373,7 @@
                             <input type="text" class="form-control espaco" placeholder="Carro (gasolina, manutenção, estacionamento)" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="carro" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="carro" ng-model="rendas.carro" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     <div class="row esconde" id="row_Limpeza">
@@ -374,7 +381,7 @@
                             <input type="text" class="form-control espaco" placeholder="Limpeza (faxina)" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="limpeza" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="limpeza" ng-model="rendas.limpeza" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     <div class="row esconde" id="row_outrosForm3">
@@ -382,13 +389,13 @@
                             <input type="text" class="form-control espaco" placeholder="Outros" readonly>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control espaco" id="outros3" value="0" placeholder="R$: 0,00">
+                            <input type="text" class="form-control espaco" id="outros3" ng-model="rendas.outrosDespesasVariaveis" value="0" placeholder="R$: 0,00">
                         </div>
                     </div>
                     
-                </form>
                 
-                <form>                    
+                
+                                    
                     <h3 class="h1_centro">Resultado</h3>
                     <hr>
                     <div class="row">
@@ -407,7 +414,7 @@
                             <input type="text" class="form-control espaco" id="totalDespesas" placeholder="R$: 0,00" readonly>
                         </div>
                     </div>
-                    <input type="button" class="btn btn-verdes" id="calcular" value="Calcular" />
+                    <input type="button" class="btn btn-verdes" id="calcular" ng-click="inserir()" value="Calcular" />
                     <hr>
                     <div class="row">
                         <div class="col">

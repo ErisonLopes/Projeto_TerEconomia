@@ -31,6 +31,7 @@
 
 function calculaRendas(){
     gravaDados();
+
     let totalDespesas = 0;
     let totalReceitas = 0;
     let orcamentosDomestico = 0;
@@ -44,7 +45,7 @@ function calculaRendas(){
     
     //ORÇAMENTO DOMÉSTICO
     orcamentosDomestico = Math.round(totalReceitas - totalDespesas);
-    
+
     document.getElementById("totalReceitas").value = "R$: " + totalReceitas.toFixed(2).replace('.' , ',');
     document.getElementById("totalDespesas").value = "R$: " + totalDespesas.toFixed(2).replace('.' , ',');
     document.getElementById("ocamentoDomestico").value = "R$: " + orcamentosDomestico.toFixed(2).replace('.' , ',');
@@ -77,6 +78,43 @@ function gravaDados(){
     limpeza = parseFloat( document.getElementById("limpeza").value );
     outros3 = parseFloat( document.getElementById("outros3").value );
 }
+
+/* 
+function salvaRendas(){
+    
+    rendas.id = 123;
+    rendas.mes  ="janeiro";
+
+    rendas.salario = salarioLiquido;
+    rendas.rendimentoAluguel = rendimentoAluguel;
+    rendas.rendimentoAplicacoes = rendimentoApli;
+    rendas.aposentadoria = aposentadoria;
+    rendas.outrosReceitaMensal = outros1;
+
+    rendas.aluguel = aluguel;
+    rendas.condominio = condominio;
+    rendas.planoSaude = planoSaude;
+    rendas.imposto = imposto;
+    rendas.seguros = seguros;
+    rendas.telefone = telefone;
+    rendas.celular = celular;
+    rendas.educacao = educacao;
+    rendas.outrosDespesasFixas = outros2;
+    
+    rendas.contas = contas;
+    rendas.alimentacao = alimentacao;
+    rendas.mercado = mercado;
+    rendas.entretenimento = entretenimento;
+    rendas.carro = carro;
+    rendas.limpeza = limpeza;
+    rendas.outrosDespesasVariaveis = outros3;
+
+    rendas.totalReceitas = totalReceitas;
+    rendas.totalDespesas = totalDespesas;
+    rendas.orcamentosDomestico = orcamentosDomestico;
+    console.log(rendas);
+}
+*/
 
 function validaCampos(){
     document.getElementById("nomeVazio").innerHTML = "";
@@ -120,6 +158,59 @@ function validaCampos(){
          document.getElementById("textareaVazio").classList.add("vazio");
          document.getElementById("textareaVazio").innerHTML = "Digite sua mensagem!";
          return false;
+
+    }
+    return true;
+}
+function validaDados(){
+    document.getElementById("nome").innerHTML = "";
+    document.getElementById("dataNacimento").innerHTML = "";
+    document.getElementById("email").innerHTML = "";
+    document.getElementById("senha").innerHTML = "";
+    document.getElementById("telefoneResi").innerHTML = "";
+    document.getElementById("celular").innerHTML = "";
+
+    document.getElementById("nome").classList.remove("vazio");
+    document.getElementById("dataNacimento").classList.remove("vazio");
+    document.getElementById("email").classList.remove("vazio");
+    document.getElementById("senha").classList.remove("vazio");
+    document.getElementById("telefoneResi").classList.remove("vazio"); 
+    document.getElementById("celular").classList.remove("vazio");
+
+    if(document.getElementById("nome").value == ""){
+
+        document.getElementById("nomeVazio").classList.add("vazio");
+        document.getElementById("nomeVazio").innerHTML = "Preencha o nome corretamente!";
+        return false;
+
+    }else if(document.getElementById("dataNacimento").value == ""){
+
+        document.getElementById("nascimentoVazio").classList.add("vazio");
+        document.getElementById("nascimentoVazio").innerHTML = "Preencha a data de Nascimento corretamente!";
+        return false;
+
+    }else if(document.getElementById("email").value == ""){
+
+        document.getElementById("emailVazio").classList.add("vazio");
+        document.getElementById("emailVazio").innerHTML = "Preencha o email corretamente!";
+        return false;
+    }else if(document.getElementById("senha").value == ""){
+
+        document.getElementById("senhaVazio").classList.add("vazio");
+        document.getElementById("senhaVazio").innerHTML = "Preencha a senha corretamente!";
+        return false;
+
+    }else if(document.getElementById("telefoneResi").value == ""){
+
+        document.getElementById("telefoneVazio").classList.add("vazio");
+        document.getElementById("telefoneVazio").innerHTML = "Preencha o telefone corretamente!";
+        return false;
+
+    }else if(document.getElementById("celular").value == ""){
+
+        document.getElementById("celularVazio").classList.add("vazio");
+        document.getElementById("celularVazio").innerHTML = "Preencha o telefone celular corretamente!";
+        return false;
 
     }
     return true;

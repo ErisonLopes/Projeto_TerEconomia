@@ -4,8 +4,6 @@
 		<meta charset="utf-8">
 
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <!-- BOOTSTRAP -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 	    <!-- CSS -->
 	    <link rel="stylesheet" type="text/css" href="css/style.css">
 	    <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
@@ -22,22 +20,22 @@
             <br>
             
             Nome Completo:<br> 
-            <input type="text" id="nome" ng-model="dados.nome" class="estiloInputs"/>
+            <input type="text" id="nome" ng-model="dados.nome" class="estiloInputs"/> <span id="nomeVazio"></span>
             <br>
             Data de Nacimento:<br>
-            <input type="date" id="dataNacimento" ng-model="dados.nacimento" class="estiloInputs"/>
+            <input type="date" id="dataNacimento" ng-model="dados.nascimento" class="estiloInputs"/> <span id="nascimentoVazio"></span>
             <br>
             E-mail:<br> 
-            <input type="email" id="email" ng-model="dados.email" class="estiloInputs"/>
+            <input type="email" id="email" ng-model="dados.email" class="estiloInputs"/> <span id="emailVazio"></span>
             <br>
             Senha:<br> 
-            <input type="password" id="senha" ng-model="dados.senha" class="estiloInputs"/>
+            <input type="password" id="senha" ng-model="dados.senha" class="estiloInputs"/> <span id="senhaVazio"></span>
             <br>
             Telefone Residencial:<br> 
-            <input type="number" id="telefoneResi" ng-model="dados.telefoneResi" class="estiloInputs"/>
+            <input type="number" id="telefoneResi" ng-model="dados.telefoneResi" class="estiloInputs"/> <span id="telefoneVazio"></span>
             <br>
             Telefone Celular:<br> 
-            <input type="number" id="celular " ng-model="dados.celular" class="estiloInputs"/>
+            <input type="number" id="celular " ng-model="dados.celular" class="estiloInputs"/> <span id="celularVazio"></span>
             <br>
             <input type="button" id="cadastrar" value="Cadastrar" ng-click="cadastrar()" class="btn-formularios"/>
         </form>
