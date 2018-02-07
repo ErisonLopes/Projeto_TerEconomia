@@ -26,6 +26,7 @@ app.listen(3000, () => {
     console.log('Servidor ligado. Acesse em http://localhost:3000');
 });
 
+
 // Rotas
 app.post('/api/usuarios', usuariosController.criar);
 
@@ -36,3 +37,5 @@ app.delete('/api/usuarios/:idDaUrl', usuariosController.deletar);
 app.post('/api/login', loginController.logar);
 
 app.post('/api/rendas', rendasController.cadastrar);
+
+//app.post('/api/rendas/:idDaUrl' + idDoUsuario , rendasController.lista);

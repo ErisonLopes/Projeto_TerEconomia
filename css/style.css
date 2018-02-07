@@ -129,6 +129,7 @@ h3>b{
 	background-color: rgba(17,209,0,1);
     color: white;
     box-shadow: 3px 3px 5px 0px black;
+    border: 1px solid rgba(17,209,0,1);
 }
 .btns_gerar{
     background-color: rgba(17,209,0,1);
@@ -197,6 +198,10 @@ h3>b{
 .cadastre_se:hover{
     text-decoration: none;
     color: rgba(17,209,0,1);
+}
+.centro{
+    margin: 0 auto;
+    text-align: center;
 }
 
 
