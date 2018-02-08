@@ -19,8 +19,8 @@
 				</section>
 		
 		<form ng-controller="logincontroller" class="loginForm">
-			Email: <input type="email" id="email" class="estiloInputs" ng-model="dados.email"/><br>
-			Senha: <input type="password" id="senha" class="estiloInputs" ng-model="dados.senha"/><br>
+			Email: <input type="email" id="email" class="estiloInputs" ng-model="dados.email" required/><br>
+			Senha: <input type="password" id="senha" class="estiloInputs" ng-model="dados.senha" required/><br>
 			<input type="button" id="login"class="btn-formularios" value="Entrar" ng-click="entrar()"/>
 			<a href="cadastro.html" class="cadastre_se">Não tem cadastro? Cadastre-se</a>
 		</form>

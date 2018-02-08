@@ -1,6 +1,7 @@
 //VARIÁVEIS
     
 //RECEITA MENSAL
+    let mes = "";
     let salarioLiquido = 0;
     let rendimentoAluguel = 0;
     let rendimentoApli = 0;
@@ -51,8 +52,9 @@ function calculaRendas(){
     document.getElementById("ocamentoDomestico").value = "R$: " + orcamentosDomestico.toFixed(2).replace('.' , ',');
 }
 
-function gravaDados(){
+function gravaDados(){    
     //RECEITA MENSAL
+     mes = document.getElementById("meses").value;
      salarioLiquido = parseFloat( document.getElementById("salarioLiquido").value );
      rendimentoAluguel = parseFloat( document.getElementById("rendimentoAluguel").value );
      rendimentoApli = parseFloat( document.getElementById("rendimentoApli").value );
@@ -78,43 +80,6 @@ function gravaDados(){
     limpeza = parseFloat( document.getElementById("limpeza").value );
     outros3 = parseFloat( document.getElementById("outros3").value );
 }
-
-/* 
-function salvaRendas(){
-    
-    rendas.id = 123;
-    rendas.mes  ="janeiro";
-
-    rendas.salario = salarioLiquido;
-    rendas.rendimentoAluguel = rendimentoAluguel;
-    rendas.rendimentoAplicacoes = rendimentoApli;
-    rendas.aposentadoria = aposentadoria;
-    rendas.outrosReceitaMensal = outros1;
-
-    rendas.aluguel = aluguel;
-    rendas.condominio = condominio;
-    rendas.planoSaude = planoSaude;
-    rendas.imposto = imposto;
-    rendas.seguros = seguros;
-    rendas.telefone = telefone;
-    rendas.celular = celular;
-    rendas.educacao = educacao;
-    rendas.outrosDespesasFixas = outros2;
-    
-    rendas.contas = contas;
-    rendas.alimentacao = alimentacao;
-    rendas.mercado = mercado;
-    rendas.entretenimento = entretenimento;
-    rendas.carro = carro;
-    rendas.limpeza = limpeza;
-    rendas.outrosDespesasVariaveis = outros3;
-
-    rendas.totalReceitas = totalReceitas;
-    rendas.totalDespesas = totalDespesas;
-    rendas.orcamentosDomestico = orcamentosDomestico;
-    console.log(rendas);
-}
-*/
 
 function validaCampos(){
     document.getElementById("nomeVazio").innerHTML = "";
@@ -319,28 +284,24 @@ function consultaRendasCadastradas(){
     // PRIMEIRA TABELA
     saida = "<table class='tabelas'>";
     saida+= "<tr>";
-    saida+= "<th>Salario Líquido</th> <th>Rendimento Aplicações</th> <th>Aposentadoria</th> <th>Outros </th>";
+    saida+= "<th>Mês</th><th>Salario Líquido</th> <th>Rendimento Aplicações</th> <th>Aposentadoria</th> <th>Outros </th>";
     saida+= "</tr>";
     saida+= "<tr>";
+    saida+= "<td>" + mes + "</td>";
     saida+= "<td>" + salarioLiquido + "</td>";
     saida+= "<td>" + rendimentoApli + "</td>";
     saida+= "<td>" + aposentadoria  + "</td>";
     saida+= "<td>" + outros1        + "</td>";
-    saida+= "</tr>";
-    saida+= "<tr>";
-    saida+= "<td>" + salarioLiquido + "</td>";
-    saida+= "<td>" + rendimentoApli + "</td>";
-    saida+= "<td>" + aposentadoria  + "</td>";
-    saida+= "<td>" + outros1        + "</td>";
-    saida+= "</tr>";
+    saida+= "</tr>";    
     saida+= "</table><br>";
     
     //SEGUNDA TABELA
     saida+="<table class='tabelas'>";
     saida+="<tr>";
-    saida+= "<th>Aluguel</th> <th>Condomínio</th> <th>Plano De Saúde</th> <th>Imposto </th> <th>Seguros</th> <th>Telefone</th> <th>Celular</th> <th>Educação</th> <th>Outros</th>";
+    saida+= "<th>Mês</th><th>Aluguel</th> <th>Condomínio</th> <th>Plano De Saúde</th> <th>Imposto </th> <th>Seguros</th> <th>Telefone</th> <th>Celular</th> <th>Educação</th> <th>Outros</th>";
     saida+= "</tr>";
     saida+= "<tr>";
+    saida+= "<td>" + mes + "</td>";
     saida+= "<td>" + aluguel + "</td>";
     saida+= "<td>" + condominio + "</td>";
     saida+= "<td>" + planoSaude  + "</td>";
@@ -356,9 +317,10 @@ function consultaRendasCadastradas(){
     //TERCEIRA TABELA
     saida+="<table class='tabelas'>";
     saida+="<tr>";
-    saida+= "<th>Contas</th> <th>Alimentação</th> <th>Mercado</th> <th>Entretenimento </th> <th>Limpeza</th> <th>Outros</th>";
+    saida+= "<th>Mês</th><th>Contas</th> <th>Alimentação</th> <th>Mercado</th> <th>Entretenimento </th> <th>Limpeza</th> <th>Outros</th>";
     saida+= "</tr>";
     saida+= "<tr>";
+    saida+= "<td>" + mes + "</td>";
     saida+= "<td>" + contas + "</td>";
     saida+= "<td>" + alimentacao + "</td>";
     saida+= "<td>" + mercado  + "</td>";
