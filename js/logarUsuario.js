@@ -5,8 +5,7 @@ angular.module('starter', [])
 
     $scope.entrar = function (){    
             
-        $http.post('http://localhost:3000/api/login', $scope.dados).then(function(){  
-            $scope.idDoUsuario = dados._id;          
+        $http.post('http://localhost:3000/api/login', $scope.dados).then(function(){                       
             console.log("login ok!");
             window.location = 'index.html';
         })

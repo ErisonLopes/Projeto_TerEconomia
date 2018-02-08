@@ -8,8 +8,7 @@ exports.logar = (req, res) => {
         else{
             if(result.length == 0){            
                 res.sendStatus(404);                
-            }else{ 
-                idDoUsuario = result._id;               
+            }else{                                
                 res.send(result);
             }
         }
